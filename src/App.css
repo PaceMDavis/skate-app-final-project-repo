@@ -159,6 +159,24 @@
   margin-top:-20px
 }
 
+.signup-div {
+  /* background-color:grey; */
+  background-image: url('./images/signup.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+  /* background-position:center; */
+  width:100%;
+  height:120vh;
+}
+
+.signup-form {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:70vh;
+}
+
 @media (min-width:768px) {
   .login-div {
     /* background-color:grey; */
@@ -167,11 +185,24 @@
     /* background-repeat:no-repeat; */
     
   }
+
+.signup-div {
+  /* background-color:grey; */
+  background-size:cover;
+  background-position:bottom 20% right 0%;
+  /* background-repeat:no-repeat; */
+  
+}
 }
 
 @media (min-width:960px) {
   .login-div {
-    background-image: url('./images/shawn-henry-eK_aInAXydw-unsplash.jpg');
+    background-image: url('./images/signup.jpg');
+    background-position:center
+  }
+
+  .signup-div {
+    background-image: url('./images/signup.jpg');
     background-position:center
   }
 }

@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
+import Signup from './components/Signup'
 
 const checkAuth = () => {
   const cookies = cookie.parse(document.cookie)
@@ -24,7 +25,7 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 const Router = () => {
   return (
     <Switch>
-      <Route exact path='/' component = {LoginForm} />
+      <Route exact path='/' component = {Signup} />
       {/* <ProtectedRoute path='/home' component ={Home} /> */}
     </Switch>
   );

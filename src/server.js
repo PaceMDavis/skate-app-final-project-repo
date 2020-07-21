@@ -1,4 +1,7 @@
 // // import { response } from 'express';
+require('dotenv').config();
+const fs = require('fs')
+const https = require('https')
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -17,19 +20,21 @@ app.use(
 //   res.sendFile(path.join(__dirname, 'build', 'index.html'))
 // })
 
-app.get('/', (req, res) => res.send('ho!'));
+app.get('/', (req, res) => res.send('hi!'));
 
-app.listen(port, () => {
-  console.log(`Web server is listening on port ${port}!`)
-})
-// const DATABASE_URL = 'postgres://iijqbpyyfkumxl:535496815d8b1666b3bce030d8093350332419640bf63aa3cee0e4bc0ce4cbee@ec2-52-20-248-222.compute-1.amazonaws.com:5432/d4f3fhuebc2khp'
+// app.listen(port, () => {
+//   console.log(`Web server is listening on port ${port}!`)
+// })
+
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.DATABASE_URL ? true : false
+
 });
 
 app.get('/db', async (req, res) => {
+  console.log(process.env.DATABASE_URL, "check")
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM test_table');
@@ -41,3 +46,10 @@ app.get('/db', async (req, res) => {
     res.send("Error " + err);
   }
 })
+
+https.createServer({
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem'),
+  passphrase: process.env.PASSPHRASE
+}, app)
+.listen(port);
