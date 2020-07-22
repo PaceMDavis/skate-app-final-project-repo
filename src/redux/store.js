@@ -5,5 +5,6 @@ import thunk from 'redux-thunk'
 
 export default createStore(
   reducers,
-  state
+  state,
+  applyMiddleware(thunk)
 )

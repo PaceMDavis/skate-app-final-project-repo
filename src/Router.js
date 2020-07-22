@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
-import LoginForm from './components/LoginForm'
+import LoginForm from './containers/LoginForm'
 import Home from './components/Home'
 import Signup from './components/Signup'
+import Map from './components/Map'
 
 const checkAuth = () => {
   const cookies = cookie.parse(document.cookie)
@@ -16,7 +17,7 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
     {...rest}
     render = {(props) => checkAuth() === true
       ? <Component {...props} />
-      : <Redirect to ={{pathname: '/', state: {from:props.location}}} />}
+      : <Redirect to ={{pathname: '/home', state: {from:props.location}}} />}
     />
   )
 }
@@ -25,8 +26,8 @@ const ProtectedRoute = ({component: Component, ...rest}) => {
 const Router = () => {
   return (
     <Switch>
-      <Route exact path='/' component = {Signup} />
-      {/* <ProtectedRoute path='/home' component ={Home} /> */}
+      <Route exact path='/' component = {LoginForm} />
+      <ProtectedRoute path='/home' component ={Map} />
     </Switch>
   );
 };

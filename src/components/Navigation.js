@@ -21,7 +21,7 @@ const NavButton = ({onClick}) =>
 
 // </button> 
 
-const Dropdown = ({show}) =>
+const Dropdown = ({show}, props) => 
 <div  style={{
   visibility: show ? "visible" : "hidden", 
   backgroundImage: `url(${mobileMenuImage})`,
@@ -43,7 +43,7 @@ const Dropdown = ({show}) =>
         Add Spot
       </li>
       <li className ="mobileNavList">
-        Logout
+        <Link to='/' logout={props.handleLogout} className="mobileNavList">Logout</Link>
       </li>
     </ul>
   </div>
@@ -54,6 +54,8 @@ class Navigation extends React.Component {
 
   state = {
     dropdownVisible: false,
+    loggedIn: this.props.isLoggedIn,
+    user: this.props.user
   }
   
 
@@ -63,11 +65,18 @@ class Navigation extends React.Component {
     }))
   }
 
+  handleLogout = event => {
+    this.props.logout(false)
+    this.setState ({
+      loggedIn: false
+    })
+  }
+
   
  
 
   render() {
-    
+    console.log(this.state)
     return (
       <div className='mobile-nav-div' >
         <Dropdown show={this.state.dropdownVisible} />

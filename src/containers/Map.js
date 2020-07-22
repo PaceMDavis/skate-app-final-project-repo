@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Spots from '../components/Spots'
+import Map from '../components/Map'
 
 
 const mapStateToProps = (state) => {
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
 //   }
 // }
 
-export default connect(mapStateToProps)(Spots)
+export default connect(mapStateToProps)(Map)
