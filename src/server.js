@@ -6,7 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-const port = process.env.PORT || 49050
+const port = process.env.PORT || 49050 | 8080
 
 app.use(bodyParser.json())
 app.use(
@@ -53,19 +53,19 @@ const pool = new Pool({
 
 });
 
-// app.get('/db', async (req, res) => {
-//   console.log(process.env.DATABASE_URL, "check")
-//   try {
-//     const client = await pool.connect();
-//     const result = await client.query('SELECT * FROM test_table');
-//     const results = { 'results': (result) ? result.rows : null};
-//     res.render('pages/db', results );
-//     client.release();
-//   } catch (err) {
-//     console.error(err);
-//     res.send("Error " + err);
-//   }
-// })
+app.get('/db', async (req, res) => {
+  console.log(process.env.DATABASE_URL, "check")
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM test_table');
+    const results = { 'results': (result) ? result.rows : null};
+    res.render('pages/db', results );
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
 
 // https.createServer({
 //   key: fs.readFileSync('./key.pem'),

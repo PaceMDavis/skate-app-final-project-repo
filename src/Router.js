@@ -5,6 +5,7 @@ import LoginForm from './containers/LoginForm'
 import Home from './components/Home'
 import Signup from './components/Signup'
 import Map from './components/Map'
+import SpotDetail from './components/SpotDetail'
 
 const checkAuth = () => {
   const cookies = cookie.parse(document.cookie)
@@ -28,6 +29,7 @@ const Router = () => {
     <Switch>
       <Route exact path='/' component = {LoginForm} />
       <ProtectedRoute path='/home' component ={Map} />
+      <ProtectedRoute path='/info/:id' component ={SpotDetail} />
     </Switch>
   );
 };
