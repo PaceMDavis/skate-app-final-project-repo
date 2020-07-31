@@ -2,7 +2,9 @@
   "name": "skate-app",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080",
   "dependencies": {
+    "@auth0/auth0-react": "^1.0.0",
     "@googlemaps/google-maps-services-js": "^2.6.0",
     "@material-ui/core": "^4.9.13",
     "@material-ui/icons": "^4.9.1",

@@ -1,6 +1,6 @@
 import React , { useState, useEffect } from 'react';
 import GoogleMapReact from 'google-map-react'
-import  { GoogleApiWrapper, InfoWindow } from 'google-maps-react'
+import  { GoogleApiWrapper } from 'google-maps-react'
 import Marker from './Marker'
 
 const url = "https://maps.googleapis.com/maps/api/geocode/json?address="
@@ -12,14 +12,13 @@ const Map = ({address}, props) => {
   const [zoom, setZoom] = useState(13)
 
   useEffect(() => {
-    // console.log(address, "reading", url+address+"&key="+api_key)
+    console.log(address, "reading", url+address+"&key="+api_key)
     fetch(url+address+"&key="+api_key)
-    // fetch(
-    //   'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyClsoUa47Qq8H6mQ4lMP0gWAJywIcxGH_U')
     .then(res => res.json())
     .then(response => {
       if(response.results[0]) {
         console.log(response.results[0].geometry.location, "hello")
+        setCenter(response.results[0].geometry.location)
       } else {
 
       }

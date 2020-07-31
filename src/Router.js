@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Switch, Route, Redirect } from 'react-router'
 import cookie from 'cookie'
 import LoginForm from './containers/LoginForm'
-import Home from './components/Home'
-import Signup from './components/Signup'
+// import Home from './components/Home'
+// import Signup from './components/Signup'
 import Map from './components/Map'
 import SpotDetail from './components/SpotDetail'
 
@@ -28,7 +28,7 @@ const Router = () => {
   return (
     <Switch>
       <Route exact path='/' component = {LoginForm} />
-      <ProtectedRoute path='/home' component ={Map} />
+      <Route path='/home' component ={Map} />
       <ProtectedRoute path='/info/:id' component ={SpotDetail} />
     </Switch>
   );

@@ -13,10 +13,14 @@ const user = (state = null, action) => {
   switch(action.type) {
     case 'USER_INFO' :
       return action.value
+    case 'GETS_USER_INFO':
+      return {...state, info:action.value} 
     default:
       return state
   }
 }
+
+
 
 const isLoggedIn = (state = false, action) => {
   switch(action.type) {

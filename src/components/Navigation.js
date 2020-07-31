@@ -1,8 +1,8 @@
-import React , {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
-import blackMobileLogo from '../images/blackMobileLogo.png'
+// import blackMobileLogo from '../images/blackMobileLogo.png'
 import whiteMobileLogo from '../images/whiteMobileLogo.png'
-import Menu from './Menu'
+// import Menu from './Menu'
 import mobileMenuImage from '../images/mobileMenuImage.jpg'
 
 
@@ -14,7 +14,7 @@ const NavButton = ({onClick}) =>
     <span></span>
   </div>
   <div id='logo-holder'>
-    <img src={whiteMobileLogo}/>
+    <img src={whiteMobileLogo} alt="logo"/>
   </div>
 </div>
 
@@ -35,7 +35,7 @@ const Dropdown = ({show}, props) =>
   }}>
   <div className="overlay">
     <ul className='navItemsMobile' >  
-      <img src={whiteMobileLogo} />
+      <img src={whiteMobileLogo} alt="logo" />
       <li className ="mobileNavList">
         Map
       </li>
