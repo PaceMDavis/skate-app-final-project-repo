@@ -9,12 +9,12 @@ const spots = (state=[], action) => {
   }
 }
 
-const user = (state = null, action) => {
+const user = (state = [], action) => {
   switch(action.type) {
-    case 'USER_INFO' :
-      return action.value
     case 'GETS_USER_INFO':
       return {...state, info:action.value} 
+    case "CREATE_USER":
+      return {...state, info:action.value}
     default:
       return state
   }

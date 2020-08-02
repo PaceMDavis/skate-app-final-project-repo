@@ -65,16 +65,22 @@
 #signup-p {
   color:white;
   font-size: 16px;
-  font-weight:bold
+  font-weight:bold;
+  text-decoration: none;
 }
 
 #signup-p span {
   padding-left:9px;
+  text-decoration: none 
 }
 
 #signup-p span:hover {
   color:blue;
   cursor:pointer;
+  text-decoration: none;
+}
+.signup-link {
+  text-decoration:none
 }
 
 #button-login {

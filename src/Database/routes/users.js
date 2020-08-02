@@ -5,4 +5,7 @@
  router.get('/', usersController.getAllUsers)
  router.get('/:id', usersController.getUserById)
 
+ // Register Handle
+ router.post('/', usersController.createUser)
+
  module.exports = router

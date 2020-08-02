@@ -5,14 +5,14 @@ import LoginForm from '../components/LoginForm'
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.isLoggedIn,
-    user: state.user
+    user: state.user.info
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     login: (bool) => dispatch(login(bool)),
-    user: (username) => dispatch(user(username))
+    // user: (name) => dispatch(user(name))
   }
 }
 

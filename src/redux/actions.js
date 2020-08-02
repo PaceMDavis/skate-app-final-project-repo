@@ -5,6 +5,13 @@ export const addSpot = (spot) => {
   }
 }
 
+export const createUser = (user) => {
+  return {
+    type: 'CREATE_USER',
+    value: user
+  }
+}
+
 export const login = (bool) => {
   return {
     type: 'TOGGLE_LOGIN',
@@ -21,10 +28,11 @@ export const logout = (bool) => {
 
 export const user = (name) => {
   return {
-    type: 'USER_INFO',
+    type: 'GETS_USER_INFO',
     value: name
   }
 }
+
 
 // export const getsUserInfo = user_id => {
 //   return async dispatch => {
@@ -35,6 +43,7 @@ export const user = (name) => {
 //     } catch(err) { alert (err)}
 //   }
 // }
+
 
 export const addMapLocations = (location) => {
   return {

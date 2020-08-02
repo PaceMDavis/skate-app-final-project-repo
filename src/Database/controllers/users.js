@@ -20,7 +20,36 @@ const getUserById = (req, res) => {
   })
 }
 
+const createUser = (req, res) => {
+  // Insert into users username, password, first name, last name
+  let sql = "INSERT INTO users (??, ??, ??, ??, ??, ??, ??) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  // What goes into brackets
+  // let user = req.body
+  const replacements = [
+    'user_name',
+    'user_password',
+    'first_name',
+    'last_name',
+    "email",
+    "city",
+    "state",
+    req.body.user_name,
+    req.body.user_password,
+    req.body.first_name,
+    req.body.last_name,
+    req.body.email,
+    req.body.city,
+    req.body.state
+  ]
+  sql = mysql.format(sql,replacements)
+
+  pool.query(sql, (err, results) => {
+    if (err) return handleSQLError(res, err)
+    return res.json({ newId: results.insertId})
+  })
+}
 module.exports = {
   getAllUsers,
-  getUserById
+  getUserById,
+  createUser
 }
