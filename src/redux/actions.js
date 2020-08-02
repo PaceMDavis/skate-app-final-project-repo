@@ -12,10 +12,10 @@ export const createUser = (user) => {
   }
 }
 
-export const login = (bool) => {
+export const login = (user) => {
   return {
-    type: 'TOGGLE_LOGIN',
-    value: bool
+    type: 'LOGIN',
+    value: user
   }
 }
 

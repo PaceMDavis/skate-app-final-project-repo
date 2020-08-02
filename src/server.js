@@ -9,6 +9,7 @@ const app = express();
 const usersRouter = require('./Database/routes/users')
 const spotsRouter = require('./Database/routes/spots')
 const socialRouter =require('./Database/routes/social')
+const authRouter = require('./Database/routes/auth')
 
 const port = process.env.PORT || 8080
 
@@ -22,6 +23,7 @@ app.use(cors())
 app.use('/users', usersRouter)
 app.use('/spots', spotsRouter)
 app.use('/social', socialRouter)
+// app.use('/authorize', authRouter)
 // app.use(express.static(path.join(_dirname, 'build')))
 
 // app.get('/', (req, res) => {

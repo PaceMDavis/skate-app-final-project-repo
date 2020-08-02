@@ -7,19 +7,20 @@ import { Auth0Provider } from "@auth0/auth0-react"
 
 
 ReactDOM.render(
-  <Auth0Provider
+  
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+  ,
+  document.getElementById('root')
+);
+
+{/* <Auth0Provider
   domain="dev-tfnpscit.auth0.com"
   clientId="L0rd9FIn7Sx4jvzvqCxKujVBPY3t4dCc"
   redirectUri={'http://localhost:3000/home'}
   >
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </Auth0Provider>,
-  document.getElementById('root')
-);
-
-
+</Auth0Provider> */}
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

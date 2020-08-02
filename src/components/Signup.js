@@ -72,9 +72,9 @@ class Signup extends React.Component {
    }
 
   render() {
-    console.log(this.props.user.info, "hairy", this.state)
+    console.log(this.props.user.info, "hairy", this.state, process.env)
     return (
-      <div class="signup-div">
+      <div className="signup-div">
         <div className="overlay">
         <div id='img-holder'>
             <img src={vectorImg} />

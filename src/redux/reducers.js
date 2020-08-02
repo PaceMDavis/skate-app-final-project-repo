@@ -15,6 +15,8 @@ const user = (state = [], action) => {
       return {...state, info:action.value} 
     case "CREATE_USER":
       return {...state, info:action.value}
+    case "LOGIN":
+      return {...state, info:action.value}
     default:
       return state
   }

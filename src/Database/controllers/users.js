@@ -1,6 +1,11 @@
 const mysql = require('mysql')
 const pool = require('../sql/connection')
+const axios = require('axios')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 const {handleSQLError} = require('../sql/error')
+
+const saltRounds = 10
 
 const getAllUsers = (req,res) => {
   pool.query("SELECT * FROM users", (err, rows) => {
@@ -20,36 +25,64 @@ const getUserById = (req, res) => {
   })
 }
 
+
+
 const createUser = (req, res) => {
   // Insert into users username, password, first name, last name
-  let sql = "INSERT INTO users (??, ??, ??, ??, ??, ??, ??) VALUES (?, ?, ?, ?, ?, ?, ?)"
+  let sql = "INSERT INTO users (user_name, user_password, first_name, last_name, email, city, state) VALUES (?, ?, ?, ?, ?, ?, ?)"
   // What goes into brackets
-  // let user = req.body
-  const replacements = [
-    'user_name',
-    'user_password',
-    'first_name',
-    'last_name',
-    "email",
-    "city",
-    "state",
-    req.body.user_name,
-    req.body.user_password,
-    req.body.first_name,
-    req.body.last_name,
-    req.body.email,
-    req.body.city,
-    req.body.state
-  ]
-  sql = mysql.format(sql,replacements)
+  const { user_name, user_password, first_name, last_name, email, city, state } = req.body
 
-  pool.query(sql, (err, results) => {
-    if (err) return handleSQLError(res, err)
-    return res.json({ newId: results.insertId})
+  //encryption of password
+  bcrypt.hash(user_password, saltRounds, function(err, hash) {
+    sql = mysql.format(sql, [user_name, hash, first_name, last_name, email, city, state])
+
+  pool.query(sql, (err, result) => {
+    if (err) {
+      if (err.code === 'ER_DUP_ENTRY') return res.status(409).send('Username is taken')
+      return handleSQLError(res, err)
+    }
+    return res.send('Sign-up successful')
   })
+  })
+  
 }
+
+const login = (req, res) => {
+  const { user_name, user_password } = req.body
+
+  axios(`https://${process.env.AUTH0_DOMAIN}/oauth/token`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json'
+    },
+    data: {
+      grant_type: 'password',
+      user_name: user_name,
+      user_password: user_password,
+      audience: process.env.AUTH0_IDENTITY,
+      connection: 'Username-Password-Authentication',
+      scope: 'openid',
+      client_id: process.env.AUTH0_CLIENT_ID,
+      client_secret: process.env.AUTH0_CLIENT_SECRET
+    }
+  })
+  .then(response => {
+    const { access_token } = response.data
+    res.json({
+      access_token
+    })
+  })
+  .catch(e => {
+    res.send(e)
+  })
+
+}
+
+
 module.exports = {
   getAllUsers,
   getUserById,
-  createUser
+  createUser,
+  login
 }

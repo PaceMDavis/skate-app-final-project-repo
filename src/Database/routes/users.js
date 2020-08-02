@@ -8,4 +8,7 @@
  // Register Handle
  router.post('/', usersController.createUser)
 
+ //Login Handle
+ router.post('/', usersController.login)
+
  module.exports = router
