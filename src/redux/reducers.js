@@ -2,6 +2,8 @@ import { combineReducers } from 'redux'
 
 const spots = (state=[], action) => {
   switch(action.type) {
+    case 'GETS_SPOT_INFO':
+      return {...state, data: action.value}
     case 'ADD_SPOT':
       return [...state, action.value]
     default:

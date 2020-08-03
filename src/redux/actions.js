@@ -12,10 +12,10 @@ export const createUser = (user) => {
   }
 }
 
-export const login = (user) => {
+export const login = (bool) => {
   return {
     type: 'LOGIN',
-    value: user
+    value: bool
   }
 }
 
@@ -30,6 +30,13 @@ export const user = (name) => {
   return {
     type: 'GETS_USER_INFO',
     value: name
+  }
+}
+
+export const spots = (data) => {
+  return {
+    type: 'GETS_SPOT_INFO',
+    value: data
   }
 }
 

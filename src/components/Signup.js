@@ -72,7 +72,6 @@ class Signup extends React.Component {
    }
 
   render() {
-    console.log(this.props.user.info, "hairy", this.state, process.env)
     return (
       <div className="signup-div">
         <div className="overlay">

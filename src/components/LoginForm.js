@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import getAllUsers from '../Database/controllers/users'
 import login from '../Database/controllers/users'
 const axios = require('axios')
+require('dotenv').config();
 
 
 
@@ -59,46 +60,46 @@ class LoginForm extends React.Component {
     this.setState(state)
   }
 
-  handleSubmit = (event, req, response) => {
+  handleSubmit = (event) => {
     event.preventDefault()
+    document.cookie = "loggedIn=true;max-age=10000*1000"
     const payload = {...this.state}
-    this.props.login(payload)
-    
+    this.props.login(true)
+    this.props.history.replace('/home')
     // const { user_name, user_password } = req.body
 
-  axios(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
-    data: {
-      grant_type: 'password',
-      username: this.state.user_name,
-      password: this.state.user_password,
-      audience: process.env.AUTH0_IDENTITY,
-      connection: 'Username-Password-Authentication',
-      scope: 'openid',
-      client_id: process.env.AUTH0_CLIENT_ID,
-      client_secret: process.env.AUTH0_CLIENT_SECRET
-    }
-  })
-  .then(response => {
-    const { access_token } = response.data
-    response.json({
-      access_token
-    })
-  })
+  // axios(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/oauth/token`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'content-type': 'application/json'
+  //   },
+  //   data: {
+  //     grant_type: 'password',
+  //     username: this.state.user_name,
+  //     password: this.state.user_password,
+  //     audience: process.env.REACT_APP_AUTH0_IDENTITY,
+  //     connection: 'Username-Password-Authentication',
+  //     scope: 'openid',
+  //     client_id: process.env.REACT_APP_AUTH0_CLIENT_ID,
+  //     client_secret: process.env.REACT_APP_AUTH0_CLIENT_SECRET
+  //   }
+  // })
+  // .then(response => {
+  //   const { access_token } = response.data
+  //   response.json({
+  //     access_token
+  //   })
+  // })
   // .catch(e => {
   //   response.send(e)
   // })
     // document.cookie = "loggedIn=true;max-age=10000*1000"
     // this.props.login(true)
     // this.props.user(this.state.username)
-    this.props.history.replace('/Signup')
+    
   }
 
   render() {
-    console.log(process.env.AUTH0_DOMAIN, "gringo")
     console.log(this.props.isLoggedIn, this.state.users, this.state.isLoaded)
     return (
       <div className="login-div">
