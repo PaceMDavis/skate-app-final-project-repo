@@ -20,7 +20,7 @@ CREATE TABLE spots (
   spot_id INT NOT NULL AUTO_INCREMENT,
   spot_name VARCHAR(45) NOT NULL,
   spot_address VARCHAR(60) NOT NULL,
-  photo_1 BLOB NOT NULL, 
+  photo_1 VARCHAR(200) NOT NULL, 
   PRIMARY KEY (spot_id)
 );
 
@@ -42,4 +42,4 @@ VALUES
 INSERT INTO spots
   (spot_name, spot_address, photo_1)
 VALUES
-  ('Red Rail', "301 W 2nd St, Austin, TX 78701", './images/red-rail.jpg')
+  ('Red Rail', "301 W 2nd St, Austin, TX 78701", 'https://www.skatedeluxe.com/blog/wp-content/uploads/2018/09/obsctacle-guide-handrail.jpg')

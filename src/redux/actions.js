@@ -14,10 +14,21 @@ export const createUser = (user) => {
 
 export const login = (bool) => {
   return {
-    type: 'LOGIN',
+    type: 'TOGGLE_LOGIN',
     value: bool
   }
 }
+
+// export const getsUserInfo = user_id => {
+//   return async dispatch => {
+//     try {
+//       let response = await axios.get(`/users/${user_id}`)
+//       let info = response.data;
+//       dispatch({type: 'GETS_USER_INFO', payload: info})
+//     } catch(err) { alert (err)}
+//   }
+// }
+
 
 export const logout = (bool) => {
   return {
@@ -40,16 +51,6 @@ export const spots = (data) => {
   }
 }
 
-
-// export const getsUserInfo = user_id => {
-//   return async dispatch => {
-//     try {
-//       let response = await axios.get(`/users/${user_id}`)
-//       let info = response.data;
-//       dispatch({type: 'GETS_USER_INFO', payload: info})
-//     } catch(err) { alert (err)}
-//   }
-// }
 
 
 export const addMapLocations = (location) => {

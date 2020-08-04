@@ -9,6 +9,6 @@
  router.post('/', usersController.createUser)
 
  //Login Handle
- router.post('/', usersController.login)
+ router.post('/login', usersController.login)
 
  module.exports = router

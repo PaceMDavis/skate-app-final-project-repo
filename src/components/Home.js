@@ -24,13 +24,14 @@ class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state.spots)
+    console.log(this.state.spots, this.props.isLoggedIn)
     return (
       <div>
         <Navigation />
         {this.state.spots.map((spot, idx) => (
           <div className = 'card'>
             <h1>{spot.spot_address}</h1>
+            <img src={spot.photo_1}></img>
           </div>
         ))}
       </div>
