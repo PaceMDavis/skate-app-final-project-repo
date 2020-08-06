@@ -40,7 +40,7 @@ const Dropdown = ({show}, props) =>
         Map
       </li>
       <li className ="mobileNavList">
-        Add Spot
+        <Link to='add'>Add Spot</Link>
       </li>
       <li className ="mobileNavList">
         <Link to='/' logout={props.handleLogout} className="mobileNavList">Logout</Link>

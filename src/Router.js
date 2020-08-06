@@ -6,6 +6,7 @@ import Home from './containers/Home'
 import Signup from './containers/Signup'
 import Map from './components/Map'
 import SpotDetail from './containers/SpotDetail'
+import AddSpot from './containers/AddSpot'
 
 const checkAuth = () => {
   const cookies = cookie.parse(document.cookie)
@@ -31,6 +32,7 @@ const Router = () => {
       <Route exact path='/signup' component = {Signup} />
       <ProtectedRoute path='/home' component ={Home} />
       <ProtectedRoute path='/info/:id' component ={SpotDetail} />
+      <ProtectedRoute path='/add' component ={AddSpot} />
     </Switch>
   );
 };

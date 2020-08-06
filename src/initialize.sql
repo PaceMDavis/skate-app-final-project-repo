@@ -37,7 +37,7 @@ CREATE TABLE social (
 INSERT INTO users
   (user_name, user_password, first_name, last_name, email, city, state)
 VALUES
-  ("skateguy123", "skatehard", "John", "Doe", "help@gmail.com", "Austin", "TX");
+  ("skateguy123", "$2y$10$DlPOLxMgk8mzzS3SnWg8g.LPQsdmTBArv8OeX/7Zo60j57N.MSl1e", "John", "Doe", "help@gmail.com", "Austin", "TX");
 
 INSERT INTO spots
   (spot_name, spot_address, photo_1)

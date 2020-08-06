@@ -5,7 +5,7 @@ const spots = (state=[], action) => {
     case 'GETS_SPOT_INFO':
       return {...state, data: action.value}
     case 'ADD_SPOT':
-      return [...state, action.value]
+      return {...state, data: action.value}
     default:
       return state;
   }

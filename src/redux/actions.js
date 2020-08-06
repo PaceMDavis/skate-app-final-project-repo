@@ -1,16 +1,3 @@
-export const addSpot = (spot) => {
-  return {
-    type: 'ADD_SPOT',
-    value: spot
-  }
-}
-
-export const createUser = (user) => {
-  return {
-    type: 'CREATE_USER',
-    value: user
-  }
-}
 
 export const login = (bool) => {
   return {
@@ -34,6 +21,13 @@ export const user = (name) => {
   }
 }
 
+export const createUser = (user) => {
+  return {
+    type: 'CREATE_USER',
+    value: user
+  }
+}
+
 export const spots = (data) => {
   return {
     type: 'GETS_SPOT_INFO',
@@ -41,7 +35,12 @@ export const spots = (data) => {
   }
 }
 
-
+export const addSpot = (spot) => {
+  return {
+    type: 'ADD_SPOT',
+    value: spot
+  }
+}
 
 export const addMapLocations = (location) => {
   return {
