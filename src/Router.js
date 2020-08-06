@@ -5,7 +5,7 @@ import LoginForm from './containers/LoginForm'
 import Home from './containers/Home'
 import Signup from './containers/Signup'
 import Map from './components/Map'
-import SpotDetail from './components/SpotDetail'
+import SpotDetail from './containers/SpotDetail'
 
 const checkAuth = () => {
   const cookies = cookie.parse(document.cookie)

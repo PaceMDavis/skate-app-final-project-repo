@@ -42,4 +42,10 @@ VALUES
 INSERT INTO spots
   (spot_name, spot_address, photo_1)
 VALUES
-  ('Red Rail', "301 W 2nd St, Austin, TX 78701", 'https://www.skatedeluxe.com/blog/wp-content/uploads/2018/09/obsctacle-guide-handrail.jpg')
+  ('Red Rail', "301 W 2nd St, Austin, TX 78701", 'https://www.skatedeluxe.com/blog/wp-content/uploads/2018/09/obsctacle-guide-handrail.jpg'),
+  ('Amli Rail', '5350 Burnet Rd, Austin, TX 78756', 'http://www.skatespots.co/imageBank/f72b2084-2088-4485-98a1-9732854ce4e5.jpg?width=900&height=900&bgcolor=white'),
+  ('14 Stair', '904 San Antonio St, Austin, TX 78701', 'http://www.skatespots.co/imageBank/f55475a2-bf7a-4aa1-af0f-4715f6e33f6e.jpg?width=900&height=900&bgcolor=white'),
+  ('Austin High Ditch', '2100 Stephen F. Austin Dr, Austin, TX 78703', 'http://www.skatespots.co/imageBank/190cc500-8171-41c8-ae07-7df1adc84505.jpg?width=900&height=900&bgcolor=white'),
+  ('Blanton Metal Ledges', '200 E MLK Jr Blvd, Austin, TX 78712', 'http://www.skatespots.co/imageBank/49b09dcb-e4c8-42e6-8dd3-7161b496f619.jpg?width=900&height=900&bgcolor=white')
+
+

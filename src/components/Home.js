@@ -19,19 +19,27 @@ class Home extends React.Component {
             isLoaded: true,
             spots: data
           })
+          this.props.spots(data)
         }
+        
       )
+      
   }
 
   render() {
-    console.log(this.state.spots, this.props.isLoggedIn)
+    console.log(this.state.spots, this.props.isLoggedIn, document.cookie)
     return (
-      <div>
+      <div className = "home-container-div">
         <Navigation />
         {this.state.spots.map((spot, idx) => (
-          <div className = 'card'>
-            <h1>{spot.spot_address}</h1>
+          <div className = 'card' key={idx} >
+             <Link className="signup-link" to ={`/info/${spot.spot_id}`}>
             <img src={spot.photo_1}></img>
+            <div className="spot-container" >
+              <h3>{spot.spot_name}</h3>
+              <h4>{spot.spot_address}</h4>
+            </div>
+            </Link>
           </div>
         ))}
       </div>

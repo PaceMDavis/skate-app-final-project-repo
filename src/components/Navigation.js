@@ -67,6 +67,7 @@ class Navigation extends React.Component {
 
   handleLogout = event => {
     this.props.logout(false)
+    document.cookie = 'LoggedIn=false'
     this.setState ({
       loggedIn: false
     })
@@ -76,7 +77,7 @@ class Navigation extends React.Component {
  
 
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div className='mobile-nav-div' >
         <Dropdown show={this.state.dropdownVisible} />

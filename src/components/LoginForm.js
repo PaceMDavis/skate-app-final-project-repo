@@ -93,6 +93,7 @@ class LoginForm extends React.Component {
       user_name: this.state.username,
       user_password: this.state.password
     }
+    
     axios.post('http://localhost:8080/users/login', body)
       .then(res=> console.log(res.data))
       .then(() => this.props.login(true))
@@ -137,6 +138,7 @@ class LoginForm extends React.Component {
 
   render() {
     // console.log(this.props.isLoggedIn, this.state.users, this.state.isLoaded)
+    console.log(document.cookie)
     return (
       <div className="login-div">
         <div className="overlay">
