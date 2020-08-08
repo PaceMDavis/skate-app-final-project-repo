@@ -27,7 +27,7 @@ const Map = ({address}, props) => {
     [address]
   );
     return (
-      <div style={{ height: '100vh', width: '100%' }}>
+      <div className='maps'>
         <GoogleMapReact
           defaultCenter={center}
           defaultZoom={zoom}

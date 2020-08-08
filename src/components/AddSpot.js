@@ -43,10 +43,9 @@ class AddSpot extends React.Component {
   render() {
     return (
       <div className="signup-div">
+        <Navigation />
         <div className="overlay">
-        <div id='img-holder'>
-            <img src={vectorImg} />
-        </div>
+       
           <form 
           onSubmit={this.handleSubmit}
           className="signup-form">

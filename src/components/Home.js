@@ -31,9 +31,10 @@ class Home extends React.Component {
     return (
       <div className = "home-container-div">
         <Navigation />
+        <div className="flex-div">
         {this.state.spots.map((spot, idx) => (
           <div className = 'card' key={idx} >
-             <Link className="signup-link" to ={`/info/${spot.spot_id}`}>
+             <Link className="signup-link"  to ={`/info/${spot.spot_id}`}>
             <img src={spot.photo_1}></img>
             <div className="spot-container" >
               <h3>{spot.spot_name}</h3>
@@ -42,6 +43,7 @@ class Home extends React.Component {
             </Link>
           </div>
         ))}
+        </div>
       </div>
       
     )

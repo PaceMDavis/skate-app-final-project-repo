@@ -34,13 +34,15 @@ const SpotDetail = (props) => {
   return (
     <div>
       <Navigation />
-      <Container>
-        <img src={info.photo_1}></img>
-        <h2>{info.spot_name}</h2>
-        <h4>{info.spot_address}</h4>
-      </Container>
-      <Map address={info.spot_address}
-      />
+      <div className="detail-control">
+        <div className = 'card' >
+          <img src={info.photo_1}></img>
+          <h2>{info.spot_name}</h2>
+          <h4>{info.spot_address}</h4>
+        </div>
+        <Map address={info.spot_address}
+        />
+      </div>
     </div>
   )
 }

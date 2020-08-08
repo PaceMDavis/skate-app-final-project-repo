@@ -40,7 +40,7 @@ const Dropdown = ({show}, props) =>
         Map
       </li>
       <li className ="mobileNavList">
-        <Link to='add'>Add Spot</Link>
+        <Link to='/add'>Add Spot</Link>
       </li>
       <li className ="mobileNavList">
         <Link to='/' logout={props.handleLogout} className="mobileNavList">Logout</Link>
@@ -82,6 +82,21 @@ class Navigation extends React.Component {
       <div className='mobile-nav-div' >
         <Dropdown show={this.state.dropdownVisible} />
         <NavButton onClick={this.toggleDropdown} />
+        <div>
+        <ul className='navItemsDesktop' >
+          <Link to='/home' style={{ textDecoration: 'none' }}>
+            <li>Home</li>
+          </Link>
+          <li>Map</li>
+          <img className='nav-image' src={whiteMobileLogo} alt="logo"/>
+          <Link to='/add' style={{ textDecoration: 'none' }}>
+            <li>Add Spot</li>
+          </Link>
+          <Link to='/' logout={this.handleLogout} style={{ textDecoration: 'none' }}>
+          <li>Logout</li>
+          </Link>
+        </ul>
+        </div>
         {this.props.children}
       </div>
 
