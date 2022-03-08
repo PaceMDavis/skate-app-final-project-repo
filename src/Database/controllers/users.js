@@ -48,36 +48,6 @@ const createUser = (req, res) => {
   
 }
 
-// const login = (req, res) => {
-//   const { user_name, user_password } = req.body
-
-//   axios(`https://${process.env.AUTH0_DOMAIN}/oauth/token`, {
-//     method: 'POST',
-//     headers: {
-//       'content-type': 'application/json'
-//     },
-//     data: {
-//       grant_type: 'password',
-//       user_name: user_name,
-//       user_password: user_password,
-//       audience: process.env.AUTH0_IDENTITY,
-//       connection: 'Username-Password-Authentication',
-//       scope: 'openid',
-//       client_id: process.env.AUTH0_CLIENT_ID,
-//       client_secret: process.env.AUTH0_CLIENT_SECRET
-//     }
-//   })
-//   .then(response => {
-//     const { access_token } = response.data
-//     res.json({
-//       access_token
-//     })
-//   })
-//   .catch(e => {
-//     res.send(e)
-//   })
-
-// }
 
 const login = (req, res) => {
   console.log(req.body, "console")

@@ -22,14 +22,6 @@ const getSpotById = (req, res) => {
 
 const createSpot = (req,res) => {
   let sql = "INSERT INTO spots (spot_name, spot_address, photo_1) VALUES (?, ?, ?)"
-  // const replacements = [
-  //   'spot_name',
-  //   'spot_address',
-  //   'photo_1',
-  //   req.body.spot_name,
-  //   req.body.spot_address,
-  //   req.body.photo_1
-  // ]
   const { spot_name, spot_address, photo_1} = req.body
   sql = mysql.format(sql, [spot_name, spot_address, photo_1])
 

@@ -4,26 +4,6 @@ import Navigation from '../containers/Navigation'
 import Map from './Map'
 
 
-// class SpotDetail extends React.Component {
-//   state = {
-//     spots = [],
-//     isLoaded = false
-//   }
-
-//   componentDidMount() {
-//     fetch('http://localhost:8080/spots')
-//       .then(res => res.json())
-//       .then(
-//         data => {
-//           this.setState({
-//             isLoaded: true,
-//             spots: data
-//           })
-//         }
-//       )
-//   }
-
-// }
 
 const SpotDetail = (props) => {
   const id = props.match.params.id

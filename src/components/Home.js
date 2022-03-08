@@ -35,7 +35,7 @@ class Home extends React.Component {
         {this.state.spots.map((spot, idx) => (
           <div className = 'card' key={idx} >
              <Link className="signup-link"  to ={`/info/${spot.spot_id}`}>
-            <img src={spot.photo_1}></img>
+            <img src={spot.photo_1} alt="skateboarding"></img>
             <div className="spot-container" >
               <h3>{spot.spot_name}</h3>
               <h4>{spot.spot_address}</h4>

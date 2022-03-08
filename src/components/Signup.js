@@ -12,9 +12,6 @@ class Signup extends React.Component {
     state: '',
     user_id: null,
   }
-  // state ={
-  //   user: {}
-  // }
 
   handleTextChange = (event) => {
     const state = {...this.state}
@@ -22,29 +19,6 @@ class Signup extends React.Component {
     this.setState(state)
   }
 
-  // handleSubmit = (event) => {
-  //   let self = this;
-  //   event.preventDefault()
-  //   fetch('/users', {
-  //     // body: JSON.stringify(this.state),
-  //     // cache: 'no-cache',
-  //     // credentials: 'same-origin',
-  //     // headers: {
-  //     //   'content-type': 'application/json'
-  //     // },
-  //     method: 'POST',
-  //     // redirect: 'Follow',
-  //     // referrer: 'no-referrer',
-  //     data: {
-  //       user_name: self.refs.user_name
-  //     }
-  //   })
-  //     .then(function(response) {
-  //       return response.json();
-  //     }) .then(function(body) {
-  //       console.log(body)
-  //     })
-  // }
 
   handleSubmit = (event) => {
     event.preventDefault()
